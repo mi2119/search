@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <title>検索🥳</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: white;
+      color: black;
+      padding: 1px;
+      text-align: center;
+    }
+    form {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    input[type="submit"] {
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    form[action="https://www.google.com/search"] input[type="submit"] {
+      background-color: #34a853;
+    }
+    form[action="https://twitter.com/search"] input[type="submit"] {
+      background-color: #1da1f2;
+    }
+    form[action="https://www.youtube.com/results"] input[type="submit"] {
+      background-color: #c4302b;
+    }
+    form[action="https://www.amazon.jp/s"] input[type="submit"] {
+      background-color: #ff9900;
+    }
+    @media screen and (max-width: 600px) {
+      form {
+        max-width: 90%;
+      }
+    }
+    .chat-link {
+      color: blue;
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>検索☺️</h1>
+  </header>
+  <form action="https://www.google.com/search"> <input type="text" name="q" placeholder="Google" autocomplete="off"> <br> <input type="submit" value="Search"> </form>
+  <form action="https://twitter.com/search"> <input type="text" name="q" placeholder="Twitter" autocomplete="off"> <br> <input type="submit" value="Search"> </form>
+  <form action="https://www.youtube.com/results"> <input type="text" name="search_query" placeholder="YouTube" autocomplete="off"> <br> <input type="submit" value="Search"> </form>
+  <form action="https://www.amazon.jp/s"> <input type="text" name="field-keywords" placeholder="Amazon" autocomplete="off"> <br> <input type="submit" value="Search"> </form>
+  <div class="chat-box"> <a class="chat-link" href="https://chat.openai.com/chat">Chat AI</a> </div>
+
+                                                  </body></html>
