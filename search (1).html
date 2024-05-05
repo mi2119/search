@@ -88,7 +88,21 @@
   <div class='board'>
     <a class='link' href='https://chat.openai.com/chat'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSpQi7VcyMhn9kOvqHSP5VVVulHe2U2HviWkvoT9agFGurbJR08iX-g20&s=10'></a>
     <textarea></textarea>
-    <div> <a class='link' href='data:text/html,<html contenteditable><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' style='dominant-baseline:central;text-anchor:middle;font-size:90px;'>%F0%9F%93%9D</text></svg>"><title>%E3%83%A1%E3%83%A2</title><script>onbeforeunload=()=>true;</script>'>メモ</a> </div>
+    <div> 
+      <a href="#" onclick="
+    // コピーする文字列を取得
+    var textToCopy = 'data:text/html, <html contenteditable> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'> <text x='50%' y='50%' style=' dominant-baseline:central; text-anchor:middle; font-size:90px; font-family:sans-serif; '> memo </text> </svg>"> <title>memo</title> <script> onbeforeunload=()=>true; </script>';
+
+    // テキストをクリップボードにコピーする
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        console.log('Text copied to clipboard');
+    }, function(err) {
+        console.error('Failed to copy text: ', err);
+    });
+"></a>
+      
+    
+    </div>
   </div>
 </body>
 </html>
