@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メモ帳</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 5px;
+            background-color: #f0f0f0;
+        }
+        #memo {
+            width: 95%;
+            height: 80vh;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            outline: none;
+            overflow-y: auto;
+        }
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #clearBtn {
+            background-color: #ff6666;
+        }
+        #clearBtn:hover {
+            background-color: #ff3333;
+        }
+        #copyBtn {
+            background-color: #66cc66;
+        }
+        #copyBtn:hover {
+            background-color: #33cc33;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="memo" contenteditable="true"></div>
+    <button id="clearBtn" class="btn">メモを消去</button>
+    <button id="copyBtn" class="btn">メモをコピー</button>
+
+    <script>
+        const memo = document.getElementById('memo');
+        const clearBtn = document.getElementById('clearBtn');
+        const copyBtn = document.getElementById('copyBtn');
+
+        // ローカルストレージからメモを読み込む
+        const savedMemo = localStorage.getItem('memoContent');
+        if (savedMemo) {
+            memo.innerHTML = savedMemo;
+        }
+
+        // メモ内容を保存
+        memo.addEventListener('input', () => {
+            localStorage.setItem('memoContent', memo.innerHTML);
+        });
+
+        // ページを離れる際に確認メッセージを表示
+        window.onbeforeunload = () => {
+            return true;
+        };
+
+        // メモを消去する
+        clearBtn.addEventListener('click', () => {
+            //if (confirm('メモを消去しますか？')) {
+                localStorage.removeItem('memoContent');
+                memo.innerHTML = '';
+            //}
+        });
+
+        // メモをコピーする
+        copyBtn.addEventListener('click', () => {
+            const range = document.createRange();
+            range.selectNodeContents(memo);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            try {
+                document.execCommand('copy');
+                alert('メモがコピーされました。');
+            } catch (err) {
+                alert('コピーに失敗しました。');
+            }
+
+            // 選択を解除
+            selection.removeAllRanges();
+        });
+    </script>
+</body>
+</html>
